@@ -21,16 +21,16 @@
 
       <script>
         async function populate() {
-
-            const requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
-            const request = new Request(requestURL);
+            const myURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json'
+            const request = new Request(myURL);
 
             const response = await fetch(request);
-            const superHeroes = await response.json();
+            const heroes = await response.json();
 
-            populateHeader(superHeroes);
-            populateHeroes(superHeroes);
+            populateHeader(heroes);
+            populateHeroes(heroes);
         }
+        
 
         function populateHeader(obj) {
             const header = document.querySelector('header');
