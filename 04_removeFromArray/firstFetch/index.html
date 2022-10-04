@@ -7,17 +7,23 @@
     <title>Document</title>
 </head>
 <body>
+    <button>Click me</button>
+    <br>
     <img src="#" alt="">
+    
     <script>
-        let img = document.querySelector('img')
-        fetch('https://api.giphy.com/v1/gifs/translate?api_key=dp2VlRS5AekyGRky3SoOgXroPolOjFPc&s=motivation')
-            .then(response => {
-                return response.json()
+        let img = document.querySelector('img');
+        let bttn = document.querySelector('button');
+        bttn.addEventListener('click', () => {
+            fetch('https://api.giphy.com/v1/gifs/translate?api_key=dp2VlRS5AekyGRky3SoOgXroPolOjFPc&s=motivation')
+                .then(response => {
+                    return response.json()
+                })
+                .then(response => {
+                    console.log(response.data)
+                    img.src = response.data.images.original.url
             })
-            .then(response => {
-                console.log(response.data)
-                img.src = response.data.images.original.url
-            })
+        })
     </script>
 </body>
 </html>
